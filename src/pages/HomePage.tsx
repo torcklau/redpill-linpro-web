@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { handleKey } from '../shared';
+import type { NavigationProps } from '../types';
 
 // ========================================================================
 // HOVEDSIDE: Hero + Norsk Suveren Sky + Digital Suverenitet
 // ========================================================================
 
-const Hero = () => (
+const Hero = ({ setCurrentPage }: NavigationProps) => (
   <div className="relative overflow-hidden bg-slate-950 pt-24 pb-32">
     <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-950"></div>
     <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/10 to-transparent blur-3xl"></div>
@@ -20,9 +21,9 @@ const Hero = () => (
         Vi hjelper deg å modernisere din eksisterende IT og klargjør deg for fremtiden.
       </p>
       <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#programmable-org" className="bg-[#e30613] text-white px-8 py-3.5 rounded font-bold transition-colors hover:bg-red-700 shadow-lg shadow-red-900/50 flex items-center justify-center gap-2">
+       <button onClick={() => setCurrentPage('programmerbar')} className="bg-[#e30613] text-white px-8 py-3.5 rounded font-bold transition-colors hover:bg-red-700 shadow-lg shadow-red-900/50 flex items-center justify-center gap-2 cursor-pointer">
           Se vår verdikjede <ChevronRight size={18} />
-        </a>
+        </button>
         <a href="#suverenitet" className="border-2 border-slate-700 bg-transparent hover:bg-slate-800 text-white px-8 py-3.5 rounded font-bold transition-colors flex items-center justify-center">
           Utforsk Norsk Sky
         </a>
@@ -242,9 +243,9 @@ const SuverenitetSection = () => {
 };
 
 // --- EKSPORTERT HOVEDSIDE ---
-const HomePage = () => (
+const HomePage = ({ setCurrentPage }: NavigationProps) => (
   <>
-    <Hero />
+    <Hero setCurrentPage={setCurrentPage} />
     <SuverenitetSection />
   </>
 );

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Navbar, Footer } from './shared';
 import HomePage from './pages/HomePage';
 import TjenesterPage from './pages/TjenesterPage';
+import ProgrammerbarOrganisasjonPage from './pages/ProgrammerbarOrganisasjonPage';
 import BeredskapPage from './pages/BeredskapPage';
 import SovereignScalePage, { LiveDemoPage } from './pages/SovereignScalePage';
 import type { PageId } from './types';
@@ -33,6 +34,8 @@ export default function App() {
     switch (currentPage) {
       case 'tjenester':
         return <TjenesterPage setCurrentPage={handlePageChange} />;
+      case 'programmerbar':
+        return <ProgrammerbarOrganisasjonPage />;       
       case 'beredskap':
         return <BeredskapPage />;
       case 'sovereign':
@@ -41,7 +44,7 @@ export default function App() {
         return <LiveDemoPage setCurrentPage={handlePageChange} />;
       case 'home':
       default:
-        return <HomePage />;
+        return <HomePage setCurrentPage={handlePageChange} />;
     }
   };
 

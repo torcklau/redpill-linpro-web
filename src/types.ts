@@ -5,7 +5,7 @@
 // ========================================================================
 
 /** Hvilke sider som finnes i appen. Brukes som diskriminert union i App-routing. */
-export type PageId = 'home' | 'tjenester' | 'beredskap' | 'sovereign' | 'demo';
+export type PageId = 'home' | 'tjenester' | 'programmerbar' | 'beredskap' | 'sovereign' | 'demo';
 
 /** Standard prop som side-komponenter mottar når de trenger å navigere. */
 export interface NavigationProps {

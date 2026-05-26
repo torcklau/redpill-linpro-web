@@ -206,6 +206,13 @@ export const Navbar = ({ currentPage, setCurrentPage }: NavbarProps) => {
               </a>
               <a 
                 href="#"
+                onClick={(e) => { e.preventDefault(); handleNavClick('programmerbar'); }}
+                className={`${currentPage === 'programmerbar' ? 'text-white bg-slate-800' : 'text-slate-300 hover:text-white'} px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer block`}
+              >
+                Programmerbar Org.
+              </a>
+              <a 
+                href="#"
                 onClick={(e) => { e.preventDefault(); handleNavClick('beredskap'); }}
                 className={`${currentPage === 'beredskap' ? 'text-white bg-slate-800' : 'text-slate-300 hover:text-white'} px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1 cursor-pointer`}
               >
@@ -254,6 +261,13 @@ export const Navbar = ({ currentPage, setCurrentPage }: NavbarProps) => {
             className={`block text-left w-full px-4 py-3 rounded-md text-sm font-medium transition-colors cursor-pointer ${currentPage === 'tjenester' ? 'bg-slate-800 text-white' : 'text-slate-300 hover:bg-slate-800/50'}`}
           >
             Tjenester
+          </a>
+           <a 
+            href="#"
+            onClick={(e) => { e.preventDefault(); handleNavClick('programmerbar'); }}
+            className={`block text-left w-full px-4 py-3 rounded-md text-sm font-medium transition-colors cursor-pointer ${currentPage === 'programmerbar' ? 'bg-slate-800 text-white' : 'text-slate-300 hover:bg-slate-800/50'}`}
+          >
+            Programmerbar Org.
           </a>
           <a 
             href="#"
