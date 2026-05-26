@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { 
   Activity, AlertTriangle, ArrowRight, Check, CheckCircle, ChevronDown,
   Code, Cpu, DollarSign, FileText, GitBranch, HardDrive, Lock, PlusCircle,
   Search, Server, Shield, TrendingDown, TrendingUp, X, XCircle, Zap
 } from 'lucide-react';
-import { DEMO_SERVERS } from '../shared';
-import type { NavigationProps } from '../types';
+import { DEMO_SERVERS, handleKey } from '../shared';
+import type { NavigationProps, DemoServer } from '../types';
 
 // ========================================================================
 // SOVEREIGNSCALE-SIDE
@@ -369,7 +369,7 @@ const SovereignScalePage = ({ setCurrentPage }: NavigationProps) => {
 // --- LIVE DEMO PAGE ---
 const LiveDemoPage = ({ setCurrentPage }: NavigationProps) => {
   const [spend, setSpend] = useState(125000);
-  const [selectedServer, setSelectedServer] = useState<string | null>(null);
+  const [selectedServer, setSelectedServer] = useState<DemoServer | null>(null);
 
   const savings = Math.round(spend * 0.25);
   let fee = Math.round(spend * 0.04);

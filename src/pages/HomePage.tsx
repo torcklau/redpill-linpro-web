@@ -186,7 +186,7 @@ const SuverenitetSection = () => {
               </thead>
               <tbody className="text-sm">
                 <tr className="bg-slate-800/50">
-                  <td colSpan="4" className="p-3 font-bold text-white uppercase tracking-wider text-xs border-y border-slate-700">1. Data &amp; Jurisdiksjon</td>
+                  <td colSpan={4} className="p-3 font-bold text-white uppercase tracking-wider text-xs border-y border-slate-700">1. Data &amp; Jurisdiksjon</td>
                 </tr>
                 <tr className="border-b border-slate-800">
                   <td className="p-4 font-medium text-slate-300">Juridisk Suverenitet (Cloud Act beskyttelse)</td>
@@ -208,7 +208,7 @@ const SuverenitetSection = () => {
                 </tr>
 
                 <tr className="bg-slate-800/50">
-                  <td colSpan="4" className="p-3 font-bold text-white uppercase tracking-wider text-xs border-y border-slate-700">2. Teknologi</td>
+                  <td colSpan={4} className="p-3 font-bold text-white uppercase tracking-wider text-xs border-y border-slate-700">2. Teknologi</td>
                 </tr>
                 <tr className="border-b border-slate-800">
                   <td className="p-4 font-medium text-slate-300">Teknologisk frihet (Open Source, ingen lock-in)</td>
@@ -224,7 +224,7 @@ const SuverenitetSection = () => {
                 </tr>
 
                 <tr className="bg-slate-800/50">
-                  <td colSpan="4" className="p-3 font-bold text-white uppercase tracking-wider text-xs border-y border-slate-700">3. Operasjonelt</td>
+                  <td colSpan={4} className="p-3 font-bold text-white uppercase tracking-wider text-xs border-y border-slate-700">3. Operasjonelt</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-medium text-slate-300">Operativ kontroll (Lokalt personell)</td>
