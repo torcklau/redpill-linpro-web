@@ -250,8 +250,8 @@ const ManagedServicesSection = ({ setCurrentPage: _setCurrentPage }: NavigationP
 // --- EKSPORTERT TJENESTESIDE ---
 const TjenesterPage = ({ setCurrentPage }: NavigationProps) => (
   <>
-    <IaaSPrisingSection />
     <ManagedServicesSection setCurrentPage={setCurrentPage} />
+    <IaaSPrisingSection />
   </>
 );
 
