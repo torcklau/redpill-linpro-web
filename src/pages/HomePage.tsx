@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { ChevronRight } from 'lucide-react';
 import { handleKey } from '../shared';
 import type { NavigationProps } from '../types';
 

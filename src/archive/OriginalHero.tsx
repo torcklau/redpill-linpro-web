@@ -1,4 +1,4 @@
-tsximport { ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import type { NavigationProps } from '../types';
 
 // ========================================================================
