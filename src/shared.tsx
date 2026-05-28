@@ -293,7 +293,51 @@ export const Navbar = ({ currentPage, setCurrentPage }: NavbarProps) => {
     </nav>
   );
 };
+// --- SOSIAL BEVIS (gjenbrukbar) ---
+//
+// Viser et utvalg kunder som "tillit-byggende" seksjon.
+// Importeres og brukes hvor som helst via:
+//   import { SocialProof } from '../shared';
+//   <SocialProof />
+//
+// Logoer er foreløpig stiliserte tekstlogoer. Byttes til SVG senere.
+// ====================================================================
 
+interface ClientLogo {
+  name: string;
+  className: string;
+}
+
+const CLIENT_LOGOS: ClientLogo[] = [
+  { name: 'AMEDIA', className: 'font-black italic tracking-tight' },
+  { name: 'DN', className: 'font-serif font-bold italic' },
+  { name: 'NTB', className: 'font-extrabold tracking-tight' },
+  { name: 'Startsiden.', className: 'font-bold' },
+  { name: 'DOMSTOL\nADMINISTRASJONEN', className: 'font-bold text-xs whitespace-pre-line leading-tight tracking-wider' },
+  { name: '§ lovdata', className: 'font-bold tracking-tight' },
+];
+
+export const SocialProof = () => (
+  <section className="bg-slate-900/40 border border-slate-800 rounded-2xl py-10 px-6 md:px-12 max-w-5xl mx-auto">
+    <div className="text-center mb-8">
+      <div className="text-slate-500 text-4xl leading-none mb-3" aria-hidden="true">"</div>
+      <p className="text-slate-300 italic text-sm md:text-base max-w-2xl mx-auto">
+        Den 3. og 4. statsmakt har uavhengighet i sitt DNA. Utvalgte kunder med strategisk fokus på egen suverenitet:
+      </p>
+    </div>
+
+    <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
+      {CLIENT_LOGOS.map((logo) => (
+        <div
+          key={logo.name}
+          className={`text-slate-400 text-2xl md:text-3xl ${logo.className} hover:text-slate-200 transition-colors`}
+        >
+          {logo.name}
+        </div>
+      ))}
+    </div>
+  </section>
+);
 // --- FOOTER ---
 export const Footer = () => (
   <footer className="bg-slate-950 border-t border-slate-800 py-12">
