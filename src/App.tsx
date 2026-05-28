@@ -44,7 +44,7 @@ export default function App() {
         return <LiveDemoPage setCurrentPage={handlePageChange} />;
       case 'home':
       default:
-        return <HomePage setCurrentPage={handlePageChange} />;
+        return <HomePage />;
     }
   };
 

@@ -1,69 +1,111 @@
 import { useState } from 'react';
-import { handleKey } from '../shared';
-import type { NavigationProps } from '../types';
+import { handleKey, SocialProof } from '../shared';
 
 // ========================================================================
 // HOVEDSIDE: Hero + Norsk Suveren Sky + Digital Suverenitet
 // ========================================================================
 
-const Hero = ({ setCurrentPage }: NavigationProps) => (
-  <div className="relative overflow-hidden bg-slate-950 pt-16 pb-20 md:pt-24 md:pb-28">
-    {/* Bakgrunns-gradient (subtil) */}
-    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-950"></div>
-    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/10 to-transparent blur-3xl pointer-events-none"></div>
+const Hero = () => {
+  const scrollToSuverenitet = (): void => {
+    document.getElementById('digital-suverenitet')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  return (
+    <div className="relative overflow-hidden bg-slate-950 pt-16 pb-20 md:pt-24 md:pb-28">
+      {/* Bakgrunnsdybde */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-950"></div>
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/10 to-transparent blur-3xl pointer-events-none"></div>
 
-        {/* VENSTRE: Overskrift, tekst og knapper */}
-        <div className="space-y-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
-            <span className="block text-white">Cloud Operations &</span>
-            <span className="block text-[#e30613]">Norsk Suveren Sky</span>
-          </h1>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-          <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-xl">
-            Hvor raskt kan du bygge om du slipper å bekymre deg for compliance?
-            Vi tar oss av infrastrukturen, slik at du kan fokusere 100% på koden.
-          </p>
+          {/* VENSTRE: Tittel, beskrivelse og CTA */}
+          <div className="space-y-7">
+            <span className="block text-[#e30613] text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
+              Norsk Suveren Sky: Veien ut av avhengigheten
+            </span>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-2">
-            <button
-              onClick={() => setCurrentPage('beredskap')}
-              className="bg-[#e30613] text-white px-8 py-3.5 rounded font-bold transition-colors hover:bg-red-700 shadow-lg shadow-red-900/50 cursor-pointer"
-            >
-              Se beredskapspakker
-            </button>
-            <button
-              onClick={() => setCurrentPage('tjenester')}
-              className="border-2 border-slate-700 bg-transparent hover:bg-slate-800 text-white px-8 py-3.5 rounded font-bold transition-colors cursor-pointer"
-            >
-              Utforsk våre tjenester
-            </button>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
+              <span className="block text-white">Vi åpner det</span>
+              <span className="block text-white">digitale</span>
+              <span className="block text-[#e30613]">handlingsrommet</span>
+            </h1>
+
+            <p className="text-base md:text-lg text-slate-300 leading-relaxed max-w-xl">
+              Mange ser avhengigheten av store, globale skyleverandører, men få vet hvor de skal begynne.
+              Redpill Linpro har levert trelags digital suverenitet i over 25 år.
+              Vi hjelper deg å bygge en digital "Plan B" for dine mest kritiske funksjoner.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <a
+                href="https://digital-sovereignty.redpill-linpro.com/?v2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#e30613] text-white px-8 py-3.5 rounded font-bold transition-colors hover:bg-red-700 shadow-lg shadow-red-900/50 text-center"
+              >
+                Start kartleggingen
+              </a>
+              <button
+                onClick={scrollToSuverenitet}
+                className="border-2 border-slate-700 bg-transparent hover:bg-slate-800 text-white px-8 py-3.5 rounded font-bold transition-colors cursor-pointer"
+              >
+                Utforsk trelags suverenitet
+              </button>
+            </div>
           </div>
+
+          {/* HØYRE: Rød info-boks med tre lag */}
+          <div className="bg-[#e30613] rounded-2xl p-8 md:p-10 shadow-2xl shadow-red-900/40 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+
+            <div className="relative z-10">
+              <span className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-white/80 block mb-4">
+                Det starter her
+              </span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-8 leading-tight">
+                Din digitale Plan B<br />bygger på tre lag:
+              </h2>
+
+              <ol className="space-y-5">
+                <li className="flex gap-4 items-start">
+                  <span className="flex-shrink-0 w-10 h-10 rounded-full bg-white/15 border-2 border-white/30 flex items-center justify-center text-white font-bold text-lg">
+                    1
+                  </span>
+                  <div>
+                    <div className="text-white font-bold text-base md:text-lg">Juridisk kontroll</div>
+                    <div className="text-white/80 text-sm">Regelverk og etterlevelse i riktig jurisdiksjon.</div>
+                  </div>
+                </li>
+
+                <li className="flex gap-4 items-start">
+                  <span className="flex-shrink-0 w-10 h-10 rounded-full bg-white/15 border-2 border-white/30 flex items-center justify-center text-white font-bold text-lg">
+                    2
+                  </span>
+                  <div>
+                    <div className="text-white font-bold text-base md:text-lg">Teknologisk kontroll</div>
+                    <div className="text-white/80 text-sm">Plattform, tilgangsstyring og administrasjon.</div>
+                  </div>
+                </li>
+
+                <li className="flex gap-4 items-start">
+                  <span className="flex-shrink-0 w-10 h-10 rounded-full bg-white/15 border-2 border-white/30 flex items-center justify-center text-white font-bold text-lg">
+                    3
+                  </span>
+                  <div>
+                    <div className="text-white font-bold text-base md:text-lg">Operativ kontroll</div>
+                    <div className="text-white/80 text-sm">Lokal drift, hendelseshåndtering og lokasjon.</div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+
         </div>
-
-        {/* HØYRE: Rød "Din digitale beredskapspakke"-panel */}
-        <button
-          onClick={() => setCurrentPage('beredskap')}
-          className="group relative bg-[#e30613] hover:bg-red-700 rounded-2xl p-10 md:p-12 text-left transition-all shadow-2xl shadow-red-900/40 hover:shadow-red-900/60 cursor-pointer min-h-[320px] flex flex-col justify-center overflow-hidden"
-          aria-label="Se digitale beredskapspakker"
-        >
-          {/* Subtil glød/glans-effekt */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
-
-          <span className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-white/80 mb-4 relative z-10">
-            Dette spør alle om
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] relative z-10">
-            Din digitale<br />beredskapspakke
-          </h2>
-        </button>
-
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 // --- SUVERENITETS-SEKSJON ---
 // Inneholder NORSK SUVEREN SKY (med AZ-diagram) og DIGITAL SUVERENITET (sammenligningstabell)
@@ -199,7 +241,8 @@ const SuverenitetSection = () => {
         </div>
 
         {/* DIGITAL SUVERENITET */}
-        <div className="mb-24 bg-slate-950 p-6 md:p-12 rounded-2xl border border-slate-800">
+        {/* DIGITAL SUVERENITET */}
+        <div id="digital-suverenitet" className="mb-24 bg-slate-950 p-6 md:p-12 rounded-2xl border border-slate-800 scroll-mt-16">
           <div className="text-center mb-12">
             <h2 className="text-[#e30613] font-bold tracking-wide uppercase text-sm mb-2">Hvorfor eierskap betyr noe</h2>
             <h3 className="text-3xl font-bold text-white mb-4">Digital suverenitet forklart</h3>
@@ -276,10 +319,13 @@ const SuverenitetSection = () => {
 };
 
 // --- EKSPORTERT HOVEDSIDE ---
-const HomePage = ({ setCurrentPage }: NavigationProps) => (
+const HomePage = () => (
   <>
-    <Hero setCurrentPage={setCurrentPage} />
+    <Hero />
     <SuverenitetSection />
+    <div className="bg-slate-950 py-20 px-4 sm:px-6 lg:px-8">
+      <SocialProof />
+    </div>
   </>
 );
 
