@@ -8,25 +8,59 @@ import type { NavigationProps } from '../types';
 // ========================================================================
 
 const Hero = ({ setCurrentPage }: NavigationProps) => (
-  <div className="relative overflow-hidden bg-slate-950 pt-24 pb-32">
+  <div className="relative overflow-hidden bg-slate-950 pt-16 pb-20 md:pt-24 md:pb-28">
+    {/* Bakgrunns-gradient (subtil) */}
     <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-950"></div>
-    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/10 to-transparent blur-3xl"></div>
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-        Gjør din IT-infrastruktur og <br className="hidden sm:block" />
-        <span className="text-[#e30613]">organisasjon programmerbar.</span>
-      </h1>
-      <p className="mt-4 max-w-3xl mx-auto text-lg sm:text-xl text-slate-300 leading-relaxed">
-        Fra suveren infrastruktur og premium tjenester til kundeteam som blir en forlenget del av din IT-funksjon. 
-        Vi hjelper deg å modernisere din eksisterende IT og klargjør deg for fremtiden.
-      </p>
-      <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-       <button onClick={() => setCurrentPage('programmerbar')} className="bg-[#e30613] text-white px-8 py-3.5 rounded font-bold transition-colors hover:bg-red-700 shadow-lg shadow-red-900/50 flex items-center justify-center gap-2 cursor-pointer">
-          Se vår verdikjede <ChevronRight size={18} />
+    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/10 to-transparent blur-3xl pointer-events-none"></div>
+
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        {/* VENSTRE: Overskrift, tekst og knapper */}
+        <div className="space-y-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+            <span className="block text-white">Cloud Operations &</span>
+            <span className="block text-[#e30613]">Norsk Suveren Sky</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-xl">
+            Hvor raskt kan du bygge om du slipper å bekymre deg for compliance?
+            Vi tar oss av infrastrukturen, slik at du kan fokusere 100% på koden.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <button
+              onClick={() => setCurrentPage('beredskap')}
+              className="bg-[#e30613] text-white px-8 py-3.5 rounded font-bold transition-colors hover:bg-red-700 shadow-lg shadow-red-900/50 cursor-pointer"
+            >
+              Se beredskapspakker
+            </button>
+            <button
+              onClick={() => setCurrentPage('tjenester')}
+              className="border-2 border-slate-700 bg-transparent hover:bg-slate-800 text-white px-8 py-3.5 rounded font-bold transition-colors cursor-pointer"
+            >
+              Utforsk våre tjenester
+            </button>
+          </div>
+        </div>
+
+        {/* HØYRE: Rød "Din digitale beredskapspakke"-panel */}
+        <button
+          onClick={() => setCurrentPage('beredskap')}
+          className="group relative bg-[#e30613] hover:bg-red-700 rounded-2xl p-10 md:p-12 text-left transition-all shadow-2xl shadow-red-900/40 hover:shadow-red-900/60 cursor-pointer min-h-[320px] flex flex-col justify-center overflow-hidden"
+          aria-label="Se digitale beredskapspakker"
+        >
+          {/* Subtil glød/glans-effekt */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+
+          <span className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-white/80 mb-4 relative z-10">
+            Dette spør alle om
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] relative z-10">
+            Din digitale<br />beredskapspakke
+          </h2>
         </button>
-        <a href="#suverenitet" className="border-2 border-slate-700 bg-transparent hover:bg-slate-800 text-white px-8 py-3.5 rounded font-bold transition-colors flex items-center justify-center">
-          Utforsk Norsk Sky
-        </a>
+
       </div>
     </div>
   </div>
